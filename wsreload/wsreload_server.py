@@ -24,6 +24,11 @@ from logging import getLogger
 log = getLogger('wsreload')
 log.setLevel(10 if options.debug else 30)
 
-server.listen(options.server_port)
 
-ioloop.start()
+def main():
+    server.listen(options.server_port)
+
+    ioloop.start()
+
+if __name__ == '__main__':
+    main()
