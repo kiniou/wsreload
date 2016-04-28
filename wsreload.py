@@ -18,7 +18,6 @@
 #     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from wsreload.client import sporadic_reload, watch, unwatch
 import argparse
-import os
 
 
 chrome_parser = argparse.ArgumentParser(
