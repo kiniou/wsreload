@@ -21,7 +21,11 @@
       for (_i = 0, _len = tabs.length; _i < _len; _i++) {
         tab = tabs[_i];
         if (tab.url.indexOf('file://') === 0) {
-          file = decodeURI(tab.url.replace('file://', ''));
+            file = decodeURI(tab.url.replace('file://', ''));
+            var index = file.indexOf('#');
+            if (index > 0) {
+                file = file.substring(0,index);
+            }
           watched_files[tab.id] = file;
           _results.push(send("watch|" + file));
         } else {
@@ -45,6 +49,10 @@
       return;
     }
     file = decodeURIComponent(url.replace('file://', ''));
+    var index = file.indexOf('#');
+    if (index > 0) {
+        file = file.substring(0,index);
+    }
     watched_files[tabId] = file;
     return send("watch|" + file);
   });
