@@ -1,2 +1,5 @@
 dist
 MANIFEST
+*.py[co]
+*.egg-info
+
