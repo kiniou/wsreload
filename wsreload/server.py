@@ -57,6 +57,9 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         super(WebSocketHandler, self).__init__(*args, **kwargs)
         self.self_watches = set()
 
+    def check_origin(self, origin):
+        return True
+
     @classmethod
     def reload(cls, query):
         log.info('Reloading for query %s' % query)
